@@ -1,4 +1,4 @@
-package com.sipriano.commerce.product;
+package com.sipriano.commerce.products;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

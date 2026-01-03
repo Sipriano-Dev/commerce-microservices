@@ -1,13 +1,13 @@
-package com.sipriano.commerce.product;
+package com.sipriano.commerce.products;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductServiceApplication {
+public class ProductsServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(ProductsServiceApplication.class, args);
 	}
 
 }

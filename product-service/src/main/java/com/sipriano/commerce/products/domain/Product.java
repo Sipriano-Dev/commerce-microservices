@@ -1,4 +1,4 @@
-package com.sipriano.commerce.product.domain;
+package com.sipriano.commerce.products.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

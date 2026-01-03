@@ -1,18 +1,18 @@
-package com.sipriano.commerce.product.controller;
+package com.sipriano.commerce.products.controller;
 
-import com.sipriano.commerce.product.domain.Product;
-import com.sipriano.commerce.product.repository.ProductRepository;
+import com.sipriano.commerce.products.domain.Product;
+import com.sipriano.commerce.products.repository.ProductsRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController {
+public class ProductsController {
 
-    private final ProductRepository repository;
+    private final ProductsRepository repository;
 
-    public ProductController(ProductRepository repository) {
+    public ProductsController(ProductsRepository repository) {
         this.repository = repository;
     }
 

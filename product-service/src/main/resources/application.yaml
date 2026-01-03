@@ -1,9 +1,10 @@
+server:
+  port: 8081
+
 spring:
+  application:
+    name: product-service
+
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: productdb
-      username: admin
-      password: admin
-      authentication-database: admin
+      uri: mongodb://admin:admin@localhost:27017/productdb?authSource=admin

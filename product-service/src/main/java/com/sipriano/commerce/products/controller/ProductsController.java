@@ -10,24 +10,41 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductsController {
 
-    private final ProductsRepository repository;
+    private final ProductsRepository productsRepository;
 
     public ProductsController(ProductsRepository repository) {
-        this.repository = repository;
+        this.productsRepository = repository;
     }
 
     @PostMapping
     public Product create(@RequestBody Product product) {
-        return repository.save(product);
+        return productsRepository.save(product);
     }
 
     @GetMapping
     public List<Product> findAll() {
-        return repository.findAll();
+        return productsRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Product findById(@PathVariable String id) {
-        return repository.findById(id).orElse(null);
+        return productsRepository.findById(id).orElse(null);
     }
+
+    @PutMapping("/{id}")
+    public Product update(@PathVariable String id, @RequestBody Product product) {
+        return productsRepository.findById(id)
+                .map(productDb -> {
+                    productDb.setName(product.getName());
+                    productDb.setPrice(product.getPrice());
+                    return productsRepository.save(productDb);
+                })
+                .orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
+        productsRepository.findById(id).ifPresent(productsRepository::delete);
+    }
+
 }

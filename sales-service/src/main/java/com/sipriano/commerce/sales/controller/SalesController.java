@@ -31,4 +31,21 @@ public class SalesController {
     public Sale findById(@PathVariable String id) {
         return salesRepository.findById(id).orElse(null);
     }
+
+    @PutMapping("/{id}")
+    public Sale update(@PathVariable String id, @RequestBody Sale sale) {
+        return salesRepository.findById(id)
+                .map(saleDb -> {
+                    saleDb.setProductId(sale.getProductId());
+                    saleDb.setQuantity(sale.getQuantity());
+                    saleDb.setTotalValue(sale.getTotalValue());
+                    return salesRepository.save(saleDb);
+                })
+                .orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
+        salesRepository.findById(id).ifPresent(salesRepository::delete);
+    }
 }
